@@ -1,4 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 import { Plate } from '../model/plate.model';
 
@@ -7,7 +8,8 @@ import { Plate } from '../model/plate.model';
 })
 export class RegistrationListService {
 
-  plateChanged = new EventEmitter<Plate[]>();
+  plateChanged = new Subject<Plate[]>();
+  startedEditing = new Subject<number>();
 
   private plates: Plate[] = [
     new Plate('Raju', 'ABC123'),
@@ -22,6 +24,20 @@ export class RegistrationListService {
 
   addPlate(plate:Plate){
     this.plates.push(plate);
-    this.plateChanged.emit(this.plates.slice());
+    this.plateChanged.next(this.plates.slice());
+  }
+
+  getPlate(index:number){
+    return this.plates[index];
+  }
+
+  updatePlate(index:number, newPlate : Plate){
+    this.plates[index]= newPlate;
+    this.plateChanged.next(this.plates.slice());
+  }
+
+  deletePlate(index:number){
+    this.plates.splice(index,1);
+    this.plateChanged.next(this.plates.slice());
   }
 }

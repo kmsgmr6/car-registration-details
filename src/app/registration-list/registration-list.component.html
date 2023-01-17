@@ -7,12 +7,16 @@
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Plate Number</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let plate of plates">
+              <tr *ngFor="let plate of plates; let i = index">
                 <td>{{plate.name}}</td>
                 <td>{{plate.numberPlate}}</td>
+                <td><button class="btn btn-primary" (click)="onEditItem(i)">Update</button></td>
+                <td><button class="btn btn-danger" (click)="onDeleteItem(i)">Delete</button></td>
               </tr>
             </tbody>
           </table>
