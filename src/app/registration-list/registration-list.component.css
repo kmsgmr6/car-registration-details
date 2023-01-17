@@ -1,0 +1,7 @@
+tr, th{
+    text-align: center;
+}
+
+thead{
+    background-color: rgb(196, 205, 213);
+}
