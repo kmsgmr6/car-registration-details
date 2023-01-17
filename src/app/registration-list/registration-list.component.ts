@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Plate } from '../model/plate.model';
+import { RegistrationListService } from '../shared/registration-list.service';
 
 @Component({
   selector: 'app-registration-list',
@@ -8,13 +9,17 @@ import { Plate } from '../model/plate.model';
   styleUrls: ['./registration-list.component.css']
 })
 export class RegistrationListComponent implements OnInit {
-plates:Plate[] = [
-  new Plate('Raju', 'ABC123'),
-  new Plate('Abhi', 'BDC123')
-];
+plates:Plate[] | undefined;
 
-constructor(){}
+constructor(private rlService : RegistrationListService){}
 
-ngOnInit(){}
+ngOnInit(){
+  this.plates = this.rlService.getPlates();
+  this.rlService.plateChanged.subscribe(
+    (plates:Plate[]) => {
+      this.plates = plates;
+    }
+  )
+}
 
 }
