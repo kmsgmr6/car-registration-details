@@ -23,7 +23,7 @@
                     ngModel
                     required
                     #plate="ngModel"
-                    pattern="[a-zA-Z]{3}[0-9]{3}"
+                    pattern="[A-Z]{3}[0-9]{3}"
                     maxlength="6">
                     <span class="help-block" *ngIf="!plate.valid && plate.touched">Plate should be in this format "ABC123", "DEF456"</span>
                 </div>

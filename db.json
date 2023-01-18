@@ -2,28 +2,38 @@
   "plates": [
     {
       "id": 0.7335993944243178,
-      "name": "RaviSharma",
-      "numberPlate": "mkj359"
+      "name": "Ravi Sharma",
+      "numberPlate": "MKJ359"
     },
     {
       "id": 0.9563276093444555,
       "name": "Bhanu",
-      "numberPlate": "adf567"
+      "numberPlate": "ADF567"
     },
     {
       "id": 0.976464875929413,
-      "name": "jabin",
+      "name": "Jabin",
       "numberPlate": "ABC796"
     },
     {
       "id": 0.5806347812235555,
-      "name": "karthik",
+      "name": "Karthik",
       "numberPlate": "ABC777"
     },
     {
       "id": 0.6803568483988482,
-      "name": "AkhilTe",
-      "numberPlate": "akh144"
+      "name": "Akhil Teja",
+      "numberPlate": "AKH144"
+    },
+    {
+      "id": 0.9883880502734528,
+      "name": "Jonas",
+      "numberPlate": "JKL111"
+    },
+    {
+      "id": 0.0882465445722751,
+      "name": "Airidas",
+      "numberPlate": "PLN001"
     }
   ]
 }
