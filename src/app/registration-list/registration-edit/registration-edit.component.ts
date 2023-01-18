@@ -18,7 +18,7 @@ export class RegistrationEditComponent implements OnInit, OnDestroy {
   editedItemIndex: number | undefined;
   editedItem: Plate | undefined;
   plates: Plate[] = [];
-  plateChangeSub: Subscription;
+  plateChangeSub: Subscription | undefined;
   addPlate: boolean = true;
   diffName: boolean = true;
 
@@ -48,7 +48,7 @@ export class RegistrationEditComponent implements OnInit, OnDestroy {
   onSubmit(form: NgForm) {
     const value = form.value;
     if (this.editMode) {
-      const newPlate = new Plate(this.editedItem.id, value.name, value.numberPlate);
+      const newPlate = new Plate(this.editedItem!.id, value.name, value.numberPlate);
       this.checkExistingPlates(value)
       if (this.addPlate == true || this.diffName == true) {
         this.rlService.updatePlate(newPlate);
@@ -77,14 +77,14 @@ export class RegistrationEditComponent implements OnInit, OnDestroy {
     form.reset();
   }
 
-  checkExistingPlates(value) {
+  checkExistingPlates(value: { name: string; numberPlate: string; }) {
     this.addPlate = true;
     this.diffName = true;
     this.plates.forEach(x => {
 
       if (this.editMode) {
 
-        if (x.id == this.editedItem.id) {
+        if (x.id == this.editedItem!.id) {
 
           if (x.name == value.name) {
             this.diffName = false;
