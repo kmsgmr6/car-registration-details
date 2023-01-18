@@ -9,8 +9,10 @@
                     class="form-control"
                     name="name"
                     ngModel
+                    #name="ngModel"
                     required
                     pattern="[a-zA-Z][a-zA-Z ]+">
+                    <span class="help-block" *ngIf="!name.valid && name.touched">Please enter a valid name conatins only Alphabets </span>
                 </div>
                 <div class="col-sm-5 form-group">
                     <label for="numberPlate">Plate Number</label>
@@ -20,16 +22,18 @@
                     name="numberPlate"
                     ngModel
                     required
-                    >
+                    #plate="ngModel"
+                    pattern="[a-zA-Z]{3}[0-9]{3}"
+                    maxlength="6">
+                    <span class="help-block" *ngIf="!plate.valid && plate.touched">Plate should be in this format "ABC123", "DEF456"</span>
                 </div>
             </div>
             <div class="row">
                 <button 
-                style="margin: left 5px;"
-                class="btn btn-success" 
+                class="btn btn-success margin-left" 
                 type="submit"
                 [disabled]="!f.valid">{{editMode ? 'Update' : 'Add'}}</button>
-                <button class="btn btn-danger" type="button" (click)="onClear()">Clear</button>
+                <button class="btn btn-danger margin-left" type="button" (click)="onClear()">Clear</button>
             </div>
         </form>
     </div>

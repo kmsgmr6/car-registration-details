@@ -1,3 +1,3 @@
 export class Plate{
-    constructor(public name:string, public numberPlate:string){}
+    constructor(public id:number, public name:string, public numberPlate:string){}
 }

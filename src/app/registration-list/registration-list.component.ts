@@ -10,13 +10,13 @@ import { RegistrationListService } from '../shared/registration-list.service';
   styleUrls: ['./registration-list.component.css']
 })
 export class RegistrationListComponent implements OnInit, OnDestroy {
-plates:Plate[] | undefined;
+plates:Plate[] =[];
 plateChangeSub : Subscription | undefined;
 
 constructor(private rlService : RegistrationListService){}
 
 ngOnInit(){
-  this.plates = this.rlService.getPlates();
+   this.rlService.fetchPlates();
   this.plateChangeSub = this.rlService.plateChanged.subscribe(
     (plates:Plate[]) => {
       this.plates = plates;

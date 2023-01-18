@@ -3,7 +3,7 @@
         <app-registration-edit></app-registration-edit>
         <hr> 
         <table class="table table-hover table-bordered">
-            <thead >
+            <thead>
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Plate Number</th>
@@ -12,11 +12,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let plate of plates; let i = index">
+              <tr *ngFor="let plate of plates;let i = index">
                 <td>{{plate.name}}</td>
-                <td>{{plate.numberPlate}}</td>
+                <td>{{plate.numberPlate | uppercase}}</td>
                 <td><button class="btn btn-primary" (click)="onEditItem(i)">Update</button></td>
-                <td><button class="btn btn-danger" (click)="onDeleteItem(i)">Delete</button></td>
+                <td><button class="btn btn-danger" (click)="onDeleteItem(plate.id)">Delete</button></td>
               </tr>
             </tbody>
           </table>
