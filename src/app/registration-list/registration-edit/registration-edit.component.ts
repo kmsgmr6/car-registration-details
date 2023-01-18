@@ -52,11 +52,11 @@ export class RegistrationEditComponent implements OnInit, OnDestroy {
       this.checkExistingPlates(value)
       if (this.addPlate == true || this.diffName == true) {
         this.rlService.updatePlate(newPlate);
-        alert("Successfully Updated")
+        alert("Data updated successfully")
         this.ngOnInit();
       }
       else {
-        alert("already exists")
+        alert("Plate number already exists")
       }
     }
     else {
@@ -65,11 +65,11 @@ export class RegistrationEditComponent implements OnInit, OnDestroy {
       this.checkExistingPlates(value)
       if (this.addPlate == true) {
         this.rlService.addPlate(newPlate);
-        alert("Successfully added");
+        alert("Data added successfully ");
         this.ngOnInit();
       }
       else {
-        alert("already exists")
+        alert("Plate number already exists")
       }
 
     }
