@@ -23,7 +23,7 @@ export class RegistrationListService implements OnInit {
 
   setPlates(plates: Plate[]){
     this.plates = plates;
-    this.plateChanged.next(this.plates.slice());
+    this.plateChanged.next(this.getPlates());
   }
 
   
@@ -49,7 +49,7 @@ export class RegistrationListService implements OnInit {
         console.log(responseData);
       }
     );
-    this.plateChanged.next(this.plates.slice());
+    this.plateChanged.next(this.getPlates());
   }
 
   updatePlate( newPlate : Plate){
@@ -60,7 +60,7 @@ export class RegistrationListService implements OnInit {
         console.log(responseData);
       }
     );
-    this.plateChanged.next(this.plates.slice());
+    this.plateChanged.next(this.getPlates());
   }
 
   deletePlate(index:number){
@@ -72,6 +72,6 @@ export class RegistrationListService implements OnInit {
     );
     alert("Successfully Deleted")
     this.fetchPlates();
-    this.plateChanged.next(this.plates.slice());
+    this.plateChanged.next(this.getPlates());
   }
 }
